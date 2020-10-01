@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+         #
+#    By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 15:59:46 by aurelienbuc       #+#    #+#              #
-#    Updated: 2020/09/30 10:42:22 by aurelienbuc      ###   ########lyon.fr    #
+#    Updated: 2020/10/01 21:46:01 by user42           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 		= ft_strlen.s
+SRCS 		= ft_strlen.s ft_strcpy.s ft_strdup.s
 		
 OBJS 		= $(SRCS:.s=.o)
 		
@@ -18,30 +18,31 @@ NAME 		= libasm.a
 	
 HEADER		= libasm.h
 
-FLAGS		= -f macho64
+FLAGS		= -f elf64
 
-TEST		= test
+RM			= rm -rf
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
 	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
 	@echo "\033[38;2;57;214;45;1mDone !"
 
 %.o: %.s $(HEADER)
 	@nasm $(FLAGS) $< -o $@
-	@echo "\033[38;2;255;204;0;1mCompiling $@...\n\033[0m"
+	@echo "\033[38;2;255;204;0;1mCompiling $@...\033[0m"
 
-$(TEST):
-		gcc -Wall -Werror -Wextra main.c libasm.a -o $(TEST)
+test:
+	gcc -Wall -Werror -Wextra -no-pie -o test main.c libasm.a
 
 clean:
-	@rm -f $(OBJS)
-	@echo "\033[38;2;230;36;36;1mDeleting objects...\n"
+	@${RM} ${OBJS}
+	@echo "\033[38;2;230;36;36;1mObjects deleted"
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "\033[38;2;230;36;36;1mDeleting $(NAME)\n"
+	@${RM} ${NAME} ${TEST}
+	@echo "\033[38;2;230;36;36;1mDirectory clean"
 
 re: fclean all
+
+.PHONY: test

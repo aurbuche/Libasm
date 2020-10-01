@@ -1,23 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aurelienbucher <aurelienbucher@student.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/30 10:18:29 by aurelienbuc       #+#    #+#             */
-/*   Updated: 2020/09/30 11:05:19 by aurelienbuc      ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
-  
 #include "libasm.h"
+#include <errno.h>
+#include <unistd.h>
+#define BUF 32
 
-int main()
+int main(void)
 {
+	char	dst[100];
+	printf("---FT_STRLEN TEST---\n");
 	printf("%ld\n", ft_strlen(""));
-    printf("%ld\n", strlen(""));
-	printf("%ld\n", ft_strlen("la"));
+	printf("%ld\n", ft_strlen("l"));
 	printf("%ld\n", ft_strlen("123-r"));
 	printf("%ld\n", ft_strlen("bonjour"));
+
+	printf("\n---FT_STRCPY TEST---");
+	printf("%s\n", ft_strcpy(dst, ""));
+	printf("%s\n", ft_strcpy(dst, "h"));
+	printf("%s\n", ft_strcpy(dst, "123-r"));
+	printf("%s\n", ft_strcpy(dst, "bonjour"));
+
+	printf("\n---FT_STRDUP TEST---");
+	printf("%s\n", ft_strdup(""));
+	printf("%s\n", ft_strdup("l"));
+	printf("%s\n", ft_strdup("123-*"));
+	printf("%s\n", ft_strdup("Hello World"));
 }

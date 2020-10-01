@@ -1,16 +1,16 @@
 section .text
-global _ft_strlen
+	global ft_strlen
 
-_ft_strlen:
-		mov eax, 0
-		jmp inc
+ft_strlen:
+	mov		rsi, 0
 
-inc:
-		add rdi, 1
-
-comp:
-		cmp byte[rdi + rax], 0
-		jne inc
+loop:
+	mov		cl, byte[rsi + rdi]
+	cmp		cl, 0
+	je		done
+	inc		rsi
+	jmp		loop
 
 done:
-		ret
+	mov		rax, rsi
+	ret
