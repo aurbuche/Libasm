@@ -1,0 +1,47 @@
+char        *strcpy(char *dst, char *src)
+    rdi = dst
+    rsi = src
+
+void        *malloc(size)
+    rdi = size
+
+size_t      ft_strlen(char *str)
+    rdi = *str
+
+char       *ft_strdup(char *str)
+
+rdi = *str
+push rdi
+rax = ft_strlen(rdi)
+mov rdi, rax
+inc rdi
+rax = malloc(rdi)
+rax -> chaine de char allouee
+rdi -> taille de src
+rsi -> BALEK
+pop rdi
+rdi -> src
+mov rsi, rdi
+mov rdi, rax
+src -> rax
+rax = ft_strcpy(rdi, rsi)
+
+
+######################################
+
+cpy:
+
+dst -> rdi;
+src -> rsi;
+i -> rdx
+byte[rsi + rdx] -> src[i]
+cl -> src[i]
+byte[rdi + rdx] -> dst[i]
+
+##################################################
+
+cmp:
+
+dst ->rdi;
+src -> rsi;
+i -> rdx;
