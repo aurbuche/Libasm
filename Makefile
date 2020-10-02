@@ -6,11 +6,12 @@
 #    By: user42 <user42@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/21 15:59:46 by aurelienbuc       #+#    #+#              #
-#    Updated: 2020/10/02 14:18:43 by user42           ###   ########lyon.fr    #
+#    Updated: 2020/10/02 14:31:28 by user42           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS 		= ft_strlen.s ft_strcpy.s ft_strdup.s ft_strcmp.s ft_write.s ft_read.s
+SRCS 		= $(addprefix srcs/, ft_strlen.s ft_strcpy.s ft_strdup.s ft_strcmp.s\
+				ft_write.s ft_read.s)
 		
 OBJS 		= $(SRCS:.s=.o)
 		
