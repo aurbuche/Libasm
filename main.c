@@ -6,7 +6,7 @@
 int main(void)
 {
 	char	dst[100];
-	int		ret;
+	// int		ret;
 
 	printf("---FT_STRLEN TEST---\n");
 	printf("[%ld]\n", ft_strlen(""));
@@ -15,13 +15,13 @@ int main(void)
 	printf("[%ld]\n", ft_strlen("bonjour"));
 
 	printf("\n---FT_STRCPY TEST---\n");
-	printf("[%s]\n", ft_strcpy(dst, ""));
+	// printf("[%s]\n", ft_strcpy(dst, ""));
 	printf("[%s]\n", ft_strcpy(dst, "h"));
 	printf("[%s]\n", ft_strcpy(dst, "123-r"));
 	printf("[%s]\n", ft_strcpy(dst, "bonjour"));
 
 	printf("\n---FT_STRDUP TEST---\n");
-	printf("[%s]\n", ft_strdup(""));
+	// printf("[%s]\n", ft_strdup(""));
 	printf("[%s]\n", ft_strdup("l"));
 	printf("[%s]\n", ft_strdup("123-*"));
 	printf("[%s]\n", ft_strdup("Hello World"));
@@ -33,6 +33,7 @@ int main(void)
 	printf("[%d]\n", ft_strcmp("Hello World", "Hello"));	
 	printf("[%d]\n", ft_strcmp("Hello World", ""));
 
+/*
 	printf("\n---FT_WRITE TEST---\n");
 	printf("ft_write(1, \"Hello World\\n\", 12)\n");
 	ret = ft_write(1, "Hello World\n", 12);
@@ -72,5 +73,5 @@ int main(void)
 		printf("%s", buf);
 	}
 	dprintf(1, "ret = %d\n", ret);
-	dprintf(1, "errno = %d\n", errno);
+	dprintf(1, "errno = %d\n", errno);*/
 }
